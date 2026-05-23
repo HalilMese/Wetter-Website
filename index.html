@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Weather App | Halil-Ibrahim Mese
+</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+HIM Weather.
+</div>
+
+<ul>
+
+<li>
+<a href="#">
+Home
+</a>
+</li>
+
+<li>
+<a href="#weather">
+Weather
+</a>
+</li>
+
+<li>
+<a href="https://github.com/HalilMese"
+target="_blank">
+
+GitHub
+
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<h1>
+
+Live
+<span>Weather App</span>
+
+</h1>
+
+<p class="subtitle">
+
+Realtime weather data
+with OpenWeather API.
+
+</p>
+
+</section>
+
+<section
+class="weather-section"
+id="weather">
+
+<div class="weather-box">
+
+<div class="search-box">
+
+<input
+type="text"
+id="cityInput"
+placeholder="Stadt eingeben...">
+
+<button
+onclick="getWeather()">
+
+Search 🔍
+
+</button>
+
+</div>
+
+<div
+class="weather-result"
+id="weatherResult">
+
+<h2>
+🌍 Weather
+</h2>
+
+<p>
+Search for a city...
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Halil-Ibrahim Mese
+<br><br>
+
+Built with HTML,
+CSS & JavaScript
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
