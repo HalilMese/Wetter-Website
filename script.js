@@ -1,5 +1,5 @@
 const apiKey =
-"DEIN_API_KEY_HIER";
+"d70bbbafad019e2296a7b5d980efaa2a";
 
 async function getWeather(){
 
