@@ -4,13 +4,11 @@ const apiKey =
 async function getWeather(){
 
 const city =
-
 document.getElementById(
 "cityInput"
-).value;
+).value.trim();
 
 const weatherResult =
-
 document.getElementById(
 "weatherResult"
 );
@@ -18,21 +16,17 @@ document.getElementById(
 if(city === ""){
 
 weatherResult.innerHTML =
-
-`
-<p>
-Bitte Stadt eingeben.
-</p>
-`;
+"<p>Bitte Stadt eingeben.</p>";
 
 return;
-
 }
+
+weatherResult.innerHTML =
+"<p>Lade Wetterdaten...</p>";
 
 try{
 
 const response =
-
 await fetch(
 
 `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=de`
@@ -42,18 +36,14 @@ await fetch(
 const data =
 await response.json();
 
-if(data.cod === "404"){
+console.log(data);
+
+if(data.cod != 200){
 
 weatherResult.innerHTML =
-
-`
-<p>
-Stadt nicht gefunden.
-</p>
-`;
+"<p>Stadt nicht gefunden.</p>";
 
 return;
-
 }
 
 weatherResult.innerHTML =
@@ -89,12 +79,9 @@ ${data.wind.speed} km/h
 catch(error){
 
 weatherResult.innerHTML =
+"<p>Fehler beim Laden.</p>";
 
-`
-<p>
-Fehler beim Laden.
-</p>
-`;
+console.log(error);
 
 }
 
