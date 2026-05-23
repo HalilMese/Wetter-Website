@@ -1,52 +1,54 @@
 const apiKey =
 "d70bbbafad019e2296a7b5d980efaa2a";
 
-async function getWeather(){
+const cities = [
 
-const city =
-document.getElementById(
-"cityInput"
-).value.trim();
+{
+name:"Berlin",
+id:"berlin"
+},
 
-const weatherResult =
-document.getElementById(
-"weatherResult"
-);
+{
+name:"London",
+id:"london"
+},
 
-if(city === ""){
+{
+name:"Tokyo",
+id:"tokyo"
+},
 
-weatherResult.innerHTML =
-"<p>Bitte Stadt eingeben.</p>";
+{
+name:"Istanbul",
+id:"istanbul"
+},
 
-return;
+{
+name:"New York",
+id:"newyork"
 }
 
-weatherResult.innerHTML =
-"<p>Lade Wetterdaten...</p>";
+];
+
+async function loadWeather(){
+
+cities.forEach(async city => {
 
 try{
 
 const response =
 await fetch(
 
-`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=de`
+`https://api.openweathermap.org/data/2.5/weather?q=${city.name}&appid=${apiKey}&units=metric&lang=de`
 
 );
 
 const data =
 await response.json();
 
-console.log(data);
-
-if(data.cod != 200){
-
-weatherResult.innerHTML =
-"<p>Stadt nicht gefunden.</p>";
-
-return;
-}
-
-weatherResult.innerHTML =
+document.getElementById(
+city.id
+).innerHTML =
 
 `
 <h2>
@@ -54,23 +56,15 @@ ${data.name}
 </h2>
 
 <p>
-🌡️ Temperatur:
-${Math.round(data.main.temp)}°C
+🌡️ ${Math.round(data.main.temp)}°C
 </p>
 
 <p>
-☁️ Wetter:
-${data.weather[0].description}
+☁️ ${data.weather[0].description}
 </p>
 
 <p>
-💧 Luftfeuchtigkeit:
-${data.main.humidity}%
-</p>
-
-<p>
-💨 Wind:
-${data.wind.speed} km/h
+💧 ${data.main.humidity}%
 </p>
 `;
 
@@ -78,15 +72,24 @@ ${data.wind.speed} km/h
 
 catch(error){
 
-weatherResult.innerHTML =
-"<p>Fehler beim Laden.</p>";
+document.getElementById(
+city.id
+).innerHTML =
 
-console.log(error);
+`
+<p>
+Fehler beim Laden
+</p>
+`;
 
 }
 
+});
+
 }
+
+loadWeather();
 
 console.log(
-"Weather App loaded 🌦️"
+"Global Weather Dashboard loaded 🌍"
 );
