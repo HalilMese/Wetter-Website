@@ -9,7 +9,7 @@
 content="width=device-width, initial-scale=1.0">
 
 <title>
-Weather App | Halil-Ibrahim Mese
+Global Weather Dashboard
 </title>
 
 <link rel="stylesheet"
@@ -25,87 +25,46 @@ href="style.css">
 HIM Weather.
 </div>
 
-<ul>
-
-<li>
-<a href="#">
-Home
-</a>
-</li>
-
-<li>
-<a href="#weather">
-Weather
-</a>
-</li>
-
-<li>
-<a href="https://github.com/HalilMese"
-target="_blank">
-
-GitHub
-
-</a>
-</li>
-
-</ul>
-
 </nav>
 
 <section class="hero">
 
 <h1>
 
-Live
-<span>Weather App</span>
+Global
+<span>Weather</span>
 
 </h1>
 
 <p class="subtitle">
 
 Realtime weather data
-with OpenWeather API.
+from cities around the world.
 
 </p>
 
 </section>
 
-<section
-class="weather-section"
-id="weather">
+<section class="weather-grid">
 
-<div class="weather-box">
-
-<div class="search-box">
-
-<input
-type="text"
-id="cityInput"
-placeholder="Stadt eingeben...">
-
-<button
-onclick="getWeather()">
-
-Search 🔍
-
-</button>
-
+<div class="weather-card" id="berlin">
+Loading Berlin...
 </div>
 
-<div
-class="weather-result"
-id="weatherResult">
-
-<h2>
-🌍 Weather
-</h2>
-
-<p>
-Search for a city...
-</p>
-
+<div class="weather-card" id="london">
+Loading London...
 </div>
 
+<div class="weather-card" id="tokyo">
+Loading Tokyo...
+</div>
+
+<div class="weather-card" id="istanbul">
+Loading Istanbul...
+</div>
+
+<div class="weather-card" id="newyork">
+Loading New York...
 </div>
 
 </section>
@@ -113,10 +72,6 @@ Search for a city...
 <footer>
 
 © 2026 Halil-Ibrahim Mese
-<br><br>
-
-Built with HTML,
-CSS & JavaScript
 
 </footer>
 
